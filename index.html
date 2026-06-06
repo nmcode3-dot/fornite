@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skybreak Royale</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="game" width="1280" height="720" aria-label="Skybreak Royale game canvas"></canvas>
+
+    <div id="shell">
+      <section id="splash" class="screen active">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <h1>Skybreak Royale</h1>
+          <p>Drop. Build. Outlast.</p>
+          <button id="continueFromSplash">Continue</button>
+        </div>
+      </section>
+
+      <section id="mainMenu" class="screen">
+        <div class="menu-panel">
+          <h2>Skybreak Royale</h2>
+          <button id="openModes">Play</button>
+          <button id="openSettings">Settings</button>
+          <button id="quickStart">Quick Solo</button>
+        </div>
+      </section>
+
+      <section id="modeMenu" class="screen">
+        <div class="menu-panel compact">
+          <h2>Mode</h2>
+          <button id="soloMode">Solo Bots</button>
+          <button id="duoMode" disabled>Duos Coming Next</button>
+          <button id="backToMenu">Back</button>
+        </div>
+      </section>
+
+      <section id="settingsMenu" class="screen">
+        <div class="menu-panel settings">
+          <h2>Settings</h2>
+          <label>Mouse sensitivity <input id="sensitivity" type="range" min="0.5" max="2.5" step="0.1" /></label>
+          <label>Music <input id="music" type="range" min="0" max="1" step="0.05" /></label>
+          <label>Effects <input id="sfx" type="range" min="0" max="1" step="0.05" /></label>
+          <label><input id="showTelemetry" type="checkbox" /> Show debug telemetry</label>
+          <button id="saveSettings">Save</button>
+          <button id="settingsBack">Back</button>
+        </div>
+      </section>
+
+      <section id="lobby" class="screen">
+        <div class="menu-panel compact">
+          <h2>Staging Island</h2>
+          <p id="lobbyStatus">Loading island...</p>
+          <button id="launchMatch">Launch Match</button>
+        </div>
+      </section>
+
+      <section id="pauseMenu" class="screen overlay">
+        <div class="menu-panel compact">
+          <h2>Paused</h2>
+          <button id="resumeGame">Resume</button>
+          <button id="restartFromPause">Restart Match</button>
+          <button id="quitToMenu">Quit to Menu</button>
+        </div>
+      </section>
+
+      <section id="results" class="screen overlay">
+        <div class="menu-panel results">
+          <h2 id="resultTitle">Match Complete</h2>
+          <div id="summary"></div>
+          <button id="playAgain">Play Again</button>
+          <button id="resultsMenu">Main Menu</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="hud">
+      <div class="top-row">
+        <div id="stormPanel" class="hud-panel">Storm: --</div>
+        <div id="alivePanel" class="hud-panel">Alive: --</div>
+        <div id="feed" class="hud-panel feed"></div>
+      </div>
+      <div id="minimap" class="hud-panel"><canvas id="mapCanvas" width="160" height="160"></canvas></div>
+      <div class="bottom-row">
+        <div class="bars hud-panel">
+          <div class="bar-label">HP</div><div class="bar"><span id="hpBar"></span></div>
+          <div class="bar-label">SH</div><div class="bar shield"><span id="shieldBar"></span></div>
+        </div>
+        <div id="inventory" class="hud-panel inventory"></div>
+        <div id="materials" class="hud-panel materials"></div>
+      </div>
+      <div id="centerHint"></div>
+      <div id="telemetry" class="hud-panel"></div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

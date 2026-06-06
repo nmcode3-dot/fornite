@@ -1,0 +1,11 @@
+{
+  "name": "skybreak-royale",
+  "version": "1.0.0",
+  "description": "Original browser-playable battle royale vertical slice with bots, storm, loot, weapons, and building.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node tests/validate.mjs",
+    "smoke": "node tests/browser-smoke.mjs"
+  }
+}
